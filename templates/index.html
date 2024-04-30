@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href=" {{ url_for('static', filename='style.css') }}"/> 
+
+    <title>Threat Intelligent : Webscraping </title>
+</head>
+<body>
+  <h2 class="text-center">Latest Security News and Updates</h2>
+  <form method="POST">
+    <label for="search_term">Enter a search term:</label><br>
+    <input type="text" id="search_term" name="search_term"><br>
+    <input type="submit" value="Submit">
+</form>
+
+    {% for a in articles %}
+<div class="col-4">
+  <div class="article_div mb-3">
+    <h4 class="article_heading text-center">{{ a['title'] }}</h4>
+    <p class="article_description">{{ a['description '] }}</p>
+  </div>
+</div>
+{% endfor %}
+
+    <h1>Histogram of Sentiment Scores</h1>
+    <img src="data:image/png;base64,{{ hist_img }}">
+    <h1>Pie Chart of Sentiment Categories</h1>
+    <img src="data:image/png;base64,{{ pie_img }}">
+    <h1>Bar Chart of Average Sentiment Score Per Title</h1>
+    <img src="data:image/png;base64,{{ bar_img }}"
+
+    
+</body>
+
+
+</html>
